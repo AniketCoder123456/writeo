@@ -1,0 +1,26 @@
+{% extends 'navbar.html' %}
+
+
+{% block content %}
+
+
+
+{% for a in userkearticles%}
+<center>
+<br>
+<div class="card" style="width: 18rem;">
+    
+    <div class="card-body">
+      <h5 class="card-title">@{{a.author}}</h5>
+      <h5 class="card-title">{{a.title}}</h5>
+      <p class="card-text">{{a.description|truncatewords:10}}</p>
+      
+      <a href="{% url 'update-article' a.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'delete-article' a.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</center>
+{% endfor %}
+{% comment %} 192.168.1.6 {% endcomment %}
+
+{% endblock content %}

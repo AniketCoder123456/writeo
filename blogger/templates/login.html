@@ -1,0 +1,32 @@
+{% extends 'navbar.html' %}
+
+
+{% block content %}
+
+<br>
+<center>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleInputEmail1"><h3>Username</h3></label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
+      
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1"><h3>Password</h3></label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+    </div>
+
+    <div class="form-group">
+    <p>Dont have a account?</p>
+    <a href="{% url 'register' %}" class="stretched-link">Register</a>
+    <br>
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</center>
+{% endblock content %}

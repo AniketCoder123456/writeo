@@ -1,0 +1,15 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<br>
+<form action="" method="POST" style="margin-left:20px">
+    {% csrf_token %}
+    are you sure you wanna delete this message?
+    <br><br>
+    <b>{{usermessage.body}}</b><br><br>
+    <input type="submit" value="Delete" class="btn btn-danger">
+    <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
+</form>
+
+
+{% endblock content %}

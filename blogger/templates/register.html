@@ -1,0 +1,37 @@
+{% extends 'navbar.html' %}
+
+
+{% block content %}
+<center>
+<br>
+<form method="POST" action="" class="card ml-40" style="margin-right: 40px; margin-left: 40px">
+    {% csrf_token %}
+    
+    <br>
+    <h3>{{form.username.label}}</h3>
+    {{form.username}}
+    <br>
+    <br>
+    <h3>{{form.password1.label}}</h3>
+    {{form.password1}}
+    <br>
+    <br>
+    <h3>{{form.password2.label}}</h3>
+    {{form.password2}}
+    <br>
+    <br>
+    <h3>{{form.email.label}}</h3>
+    {{form.email}}
+
+    <br>
+    <br>
+
+    <div class="form-group">
+        <p>Already have a account</p>
+        <a href="{% url 'login' %}" class="stretched-link">Login</a>
+        <br>
+    </div>
+    <input type="submit" value="Register" class="btn btn-primary">
+</form>
+</center>
+{% endblock content %}

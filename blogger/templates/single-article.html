@@ -1,0 +1,62 @@
+{% extends 'navbar.html' %}
+
+{% load static %}
+{% block content %}
+<br>
+<center><a>@{{article.author}}</a></center>
+<center><h2>{{article.title}}</h2></center>
+<br>
+
+<div class="text-monospace" style="margin-right:20px;margin-left:20px">
+    {{article.description|linebreaks}}
+</div>
+
+
+
+
+
+
+
+<center>
+<h4>Comments</h4>
+</center>
+
+{% for comment in comments %}
+<hr>
+<small style="margin-right:10px;margin-left:10px">
+    <b>@{{comment.user}}</b> | <b>{{comment.created | timesince}}</b>
+    {% if  comment.user == request.user%}
+    | <a href="{% url   'delete-message' comment.id %}" class="stretched-link">Delete</a>
+    {% endif %}
+</small>
+<p style="margin-right:10px;margin-left:10px">{{comment.body}}</p>
+<hr>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+<br>
+<div class="form-group">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="body" placeholder="Write your message here.." class="form-control">
+        <br>
+        <input type="submit" value="Add Comment" class="btn btn-primary">
+
+    </form>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+

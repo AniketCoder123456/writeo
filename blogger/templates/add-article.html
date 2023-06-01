@@ -1,0 +1,69 @@
+{% extends 'navbar.html' %}
+
+
+{% block content %}
+
+
+{% if page == 'update'%}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <br>
+
+    <div class="form-group">
+        <center>
+        <label for="exampleFormControlTextarea2"><h3>Title</h3></label>
+        </center>
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" name="title">{{article_update.title}}</textarea>
+      </div>
+    
+    <div class="form-group">
+        <center>
+        <label for="exampleFormControlTextarea1"><h3>Content</h3></label>
+        </center>
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="description">{{article_update.description|linebreaks|striptags}}</textarea>
+    </div>
+
+ 
+
+
+    <input type="submit" value="Update Article" class="btn btn-primary">
+</form>
+
+
+
+
+
+
+
+
+
+{% else %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <br>
+
+    <div class="form-group">
+        <center>
+        <label for="exampleFormControlTextarea2"><h3>Title</h3></label>
+        </center>
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" name="title">write here</textarea>
+      </div>
+    
+    <div class="form-group">
+        <center>
+        <label for="exampleFormControlTextarea1"><h3>Content</h3></label>
+        </center>
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="description">write here use small button and drag it which is on the bottom right side to increase size of this box</textarea>
+    </div>
+
+ 
+
+
+    <input type="submit" value="Add Article" class="btn btn-primary">
+</form>
+{% endif %}
+
+
+{% endblock content %}
